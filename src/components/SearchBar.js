@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 
-// onSearch는 부모 컴포넌트로부터 전달받은 함수
+// onSearch는 부모 컴포넌트로부터 전달받은 함수.
 // 이 함수는 사용자가 검색어를 제출(submit)할 때 호출되어 검색 결과를 처리하게 된다.
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
