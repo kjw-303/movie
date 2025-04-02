@@ -41,6 +41,7 @@ const Home = () => {
     setSortOrder(newOrder);
     setMovies((prevMovies) => {
       const sorted = [...prevMovies].sort((a, b) => {
+        //정렬시에 원본 데이터를 유지하기 위해 spread 연산자 사용해서 복사본으로 만듬듬
         const dateA = new Date(a.release_date);
         const dateB = new Date(b.release_date);
         return newOrder === "desc" ? dateB - dateA : dateA - dateB;
