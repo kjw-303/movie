@@ -4,18 +4,27 @@ import Home from "./pages/Home";
 import MovieDetail from "./pages/MovieDetail";
 import { WishlistProvider } from "./contexts/WishlistContext";
 import Wishlist from "./pages/Wishlist";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
       <WishlistProvider>
         <Router>
-          <nav>
-            <Link to="/" style={{ marginRight: 10 }}>
-              홈
-            </Link>
-            <Link to="/wishlist">위시리스트</Link>
-          </nav>
+          <Navbar bg="light" data-bs-theme="light">
+            <Container>
+              <Navbar.Brand>영화검색</Navbar.Brand>
+              <Nav className="me-auto">
+                <Nav.Link as={Link} to="/">
+                  Home
+                </Nav.Link>
+                <Nav.Link as={Link} to="/Wishlist">
+                  위시리스트
+                </Nav.Link>
+              </Nav>
+            </Container>
+          </Navbar>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/movie/:id" element={<MovieDetail />} />

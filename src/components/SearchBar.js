@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
+import { Stack, Form, Button } from "react-bootstrap";
 
 // onSearch는 부모 컴포넌트로부터 전달받은 함수.
 // 이 함수는 사용자가 검색어를 제출(submit)할 때 호출되어 검색 결과를 처리하게 된다.
@@ -14,18 +15,20 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search-form">
-      <input
-        type="text"
-        value={query}
-        placeholder="영화 제목을 입력하세요."
-        onChange={(e) => setQuery(e.target.value)}
-        className="search-input"
-      />
-      <button type="submit" className="search-button">
-        검색
-      </button>
-    </form>
+    <Form onSubmit={handleSubmit} className="search-form w-50 mt-3">
+      <Stack direction="horizontal" gap={2}>
+        <Form.Control
+          type="text"
+          value={query}
+          placeholder="영화 제목을 입력하세요."
+          onChange={(e) => setQuery(e.target.value)}
+          className="search-input"
+        />
+        <Button variant="secondary" type="submit" className="search-button">
+          Search
+        </Button>
+      </Stack>
+    </Form>
   );
 };
 

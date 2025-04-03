@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import MovieList from "../components/MovieList";
 import LoadingSpinner from "../components/LoadingSpinner";
 import axios from "axios";
+import { Form } from "react-bootstrap";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -51,15 +52,22 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="m-3">
       <h1>영화 검색 앱</h1>
       <SearchBar onSearch={handleSearch} />
-      <div>
-        <label htmlFor="sortOrder">정렬 옵션 :</label>
-        <select id="sortOrder" value={sortOrder} onChange={handleSortChange}>
+      <div className="d-flex align-items-center gap-2 mt-3">
+        <label htmlFor="sortOrder" className="white-space-nowrap">
+          정렬 옵션 :
+        </label>
+        <Form.Select
+          id="sortOrder"
+          value={sortOrder}
+          onChange={handleSortChange}
+          className="w-25"
+        >
           <option value="desc">최신순</option>
-          <option value="asc">오래된된순</option>
-        </select>
+          <option value="asc">오래된순</option>
+        </Form.Select>
       </div>
       {loading && <LoadingSpinner />}
       {error && <p className="error">{error}</p>}

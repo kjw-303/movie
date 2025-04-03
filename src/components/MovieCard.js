@@ -12,7 +12,7 @@ const MovieCard = ({ movie }) => {
     : "https://via.placeholder.com/500x750?text=No+Image";
 
   return (
-    <div className="movie-card">
+    <div className="movie-card mt-3">
       <Link to={`/movie/${movie.id}`} className="movie-link">
         <img src={posterUrl} alt={movie.title} className="movie-img" />
         <h3>{movie.title}</h3>

@@ -7,7 +7,7 @@ const MovieList = ({ movies, onToggleLike, wishlist }) => {
   }
 
   return (
-    <div className="movie-list">
+    <div className="movie-list d-flex flex-wrap">
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}
